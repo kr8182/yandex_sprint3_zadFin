@@ -11,11 +11,13 @@ public class DinnerConstructor {
     HashMap<String, ArrayList<String>> dishesByTypes;
     ArrayList<String>  searchArrayOfItems;
 
+    //Конструктор классов для DinnerCostructor
     DinnerConstructor() {
         dishesByTypes = new HashMap<>();
-        searchArrayOfItems = new ArrayList<>();
+        searchArrayOfItems = new ArrayList<>();//Он нужен для осуществления поиска.
     }
 
+    //Метод, который добавляет блюдо в меню
     void addDishToMenu(String dishType, String dishName) {
         if (dishesByTypes.isEmpty() || !(dishesByTypes.containsKey(dishType))) {
             ArrayList menuPositions = new ArrayList();
@@ -51,11 +53,14 @@ public class DinnerConstructor {
         return outputComboOfDishes;
     }
 
+    //Метод добавляющий в поисковой массив значения с консоли
     ArrayList<String> addItemsToSearchArray(String item) {
         searchArrayOfItems.add(item);
         return searchArrayOfItems;
     }
 
+
+    //Метод очистки поискового массива
     ArrayList<String> clearItemsToSearchArray() {
         searchArrayOfItems.clear();
         return searchArrayOfItems;
