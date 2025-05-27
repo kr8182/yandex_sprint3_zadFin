@@ -13,6 +13,7 @@ public class Main {
         dc = new DinnerConstructor();
         scanner = new Scanner(System.in);
 
+        /*В соответствие с заданием из главного меню вызываются только метода. Часть оставили нетронутой*/
         while (true) {
             printMenu();
             String command = scanner.nextLine();
@@ -53,11 +54,16 @@ public class Main {
         scanner.nextLine();
 
         System.out.println("Вводите типы блюда, разделяя символом переноса строки (enter). Для завершения ввода введите пустую строку");
-        String nextItem = scanner.nextLine(); //реализуйте ввод типов блюд
+        /*реализуйте ввод типов блюд*/
+        String nextItem = scanner.nextLine();
+
+        /*Наполняем поисковой массив значениям из консоли*/
         while (!nextItem.isEmpty()) {
            dc.searchArrayOfItems = dc.addItemsToSearchArray(nextItem);
            nextItem = scanner.nextLine();
         }
+
+        /*сгенерируйте комбинации блюд и выведите на экран*/
         for (int combo = 1; combo <= numberOfCombos; combo++) {
             System.out.println("Комбо " + combo);
             HashMap<String, ArrayList<String>> outputComboOfDishes;
@@ -65,8 +71,9 @@ public class Main {
             System.out.println(outputComboOfDishes);
         }
 
+        /*Очищаем поисковой массив, для того, чтобы он не фонил при последующх вызовах*/
         dc.clearItemsToSearchArray();
-        // сгенерируйте комбинации блюд и выведите на экран
+
 
     }
 }
