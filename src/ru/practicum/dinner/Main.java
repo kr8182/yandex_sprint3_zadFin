@@ -59,6 +59,9 @@ public class Main {
 
         /*Наполняем поисковой массив значениям из консоли*/
         while (!nextItem.isEmpty()) {
+           if (!(dc.dishesByTypes.containsKey(nextItem))) {
+               System.out.println("Введен некорректный тип: " + nextItem + ". Его нет в категориях меню");
+           }
            dc.searchArrayOfItems = dc.addItemsToSearchArray(nextItem);
            nextItem = scanner.nextLine();
         }

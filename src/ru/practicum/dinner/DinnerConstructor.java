@@ -33,18 +33,13 @@ public class DinnerConstructor {
     /*Метод создания комбо. В случае отсутствия категории выводится предупреждение*/
     HashMap<String, ArrayList<String>> createComboMenu(ArrayList<String> searchArrayOfItems) {
         HashMap<String, ArrayList<String>> outputComboOfDishes = new HashMap<>();
-        for (String type : searchArrayOfItems){
-        if (!(dishesByTypes.containsKey(type))) {
-            System.out.println("Категории " + type + " не существует");
-            System.out.println("Комбо будет составлено по имеющимся категориям");
-        }}
+
         for (String type : searchArrayOfItems) {
             ArrayList<String> randomMenuPositions = dishesByTypes.get(type);
             if (randomMenuPositions != null && !randomMenuPositions.isEmpty()) {
                 // Выбираем случайное блюдо из списка
                 int randomIndex = randomInt.nextInt(randomMenuPositions.size());
                 String randomDish = randomMenuPositions.get(randomIndex);
-
                 // Создаем список с одним выбранным блюдом и добавляем в результат
                 ArrayList<String> combo = new ArrayList<>();
                 combo.add(randomDish);
